@@ -1,25 +1,31 @@
 const pessoa = {
 
 peso: 59.4,
-calorias: {
-max: 7000,
-atual: 0
-},
+caloriasPerdidas: 0,
+caloriasGanhas: 0,
 
 treinar: function() {
-    if(this.calorias.atual === this.calorias.max) {
-        return this.peso -= 1;
-    } else {
-        return this.calorias.atual += 1000;
-    }   
+   
+    this.caloriasPerdidas += 1000;
+
+    if(this.caloriasPerdidas % 7000 === 0) {
+        this.peso -= 1;
+    } 
+    
+    return `O seu peso atual é ${this.peso} e quantidade de calorias perdidas durante o treino foi de ${this.caloriasPerdidas}.`
 },
 
 comer: function() {
-    if(this.calorias.atual === this.calorias.max){
-        return this.peso += 1;
-    } else {
-        return this.calorias.atual += 1000;
+
+    this.caloriasGanhas += 1000;
+
+    if(this.caloriasGanhas % 7000 === 0){
+        this.peso += 1;
     }
+   
+    return `O seu peso atual é ${this.peso} e quantidade de calorias ganha com o lanche foi de ${this.caloriasGanhas}.`
+
 }
 
 }
+
